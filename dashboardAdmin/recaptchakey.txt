@@ -1,0 +1,6 @@
+
+'farmsol.test' has been registered.
+Use this site key in the HTML code your site serves to users.
+6LeZTWEkAAAAAJ1-qaB6jEK3GPNmGiZERJYTNjGa
+Use this secret key for communication between your site and reCAPTCHA.
+6LeZTWEkAAAAAPObjCp8w7GzNwOndNaMnBRWVoxK
