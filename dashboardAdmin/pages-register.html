@@ -10,8 +10,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="http://localhost/serverDirectory/farmSolutions/dashboardAdmin/assets/img/logosq.svg" rel="icon">
+  <link href="http://localhost/serverDirectory/farmSolutions/dashboardAdmin/assets/img/logosq.svg" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -62,16 +62,25 @@
                     <p class="text-center small">Enter your personal details to create account</p>
                   </div>
 
-                  <form class="row g-3 needs-validation" novalidate>
+                  <form class="row g-3 needs-validation">
+                    <style>
+                      input:valid {
+                                      background-color: palegreen;
+                                  }
+
+                                  input:invalid {
+                                      background-color: lightpink;
+                                  }
+                    </style>
                     <div class="col-12">
                       <label for="yourName" class="form-label">Your Name</label>
-                      <input type="text" name="name" class="form-control" id="yourName" required>
-                      <div class="invalid-feedback">Please, enter your name!</div>
+                      <input type="text" name="name" class="form-control" id="yourName" pattern="" required>
+                      <div class="invalid-feedback">Enter Name!</div>
                     </div>
 
                     <div class="col-12">
                       <label for="yourEmail" class="form-label">Your Email</label>
-                      <input type="email" name="email" class="form-control" id="yourEmail" required>
+                      <input type="email" name="email" class="form-control" id="yourEmail" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required>
                       <div class="invalid-feedback">Enter valid Email ID !</div>
                     </div>
 
@@ -79,7 +88,7 @@
                       <label for="yourUsername" class="form-label">Username</label>
                       <div class="input-group has-validation">
                         <span class="input-group-text" id="inputGroupPrepend">@</span>
-                        <input type="text" name="username" class="form-control" id="yourUsername" required>
+                        <input type="text" name="username" class="form-control" id="yourUsername"  title="4 to 8 lowercase letters" pattern="[A-Za-z]{4,8}" required>
                         <div class="invalid-feedback">Enter Username.</div>
                       </div>
                     </div>
@@ -95,7 +104,7 @@
                       <div class="invalid-feedback">Enter Password!</div>
                     </div>
                     <div class="col-12">
-                      <div class="g-recaptcha" data-sitekey="6LeZTWEkAAAAAJ1-qaB6jEK3GPNmGiZERJYTNjGa"></div>
+                      <div class="g-recaptcha" style="display: flex;justify-content: center;align-items: center;" data-sitekey="6LeZTWEkAAAAAJ1-qaB6jEK3GPNmGiZERJYTNjGa"></div>
                     </div>
                     <div class="col-12">
                       <div class="form-check">
@@ -110,6 +119,13 @@
                     <div class="col-12">
                       <p class="small mb-0">Already have an account? <a href="pages-login.html">Log in</a></p>
                     </div>
+                    <script>
+                      function validateForm() {
+                       let x = document.forms["myForm"]["fname"].value;
+                         if (x == "") {
+                            alert("Name must be filled out");
+                          return false;}}
+                    </script>
                   </form>
 
                 </div>
