@@ -5,13 +5,12 @@ import {
 } from 'firebase/firestore'
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDUDDsXAjY647xOv7G_o3_tj7HJ9D4bMRo",
-    authDomain: "firibasedemo.firebaseapp.com",
-    projectId: "firibasedemo",
-    storageBucket: "firibasedemo.appspot.com",
-    messagingSenderId: "644598464107",
-    appId: "1:644598464107:web:1ad7bd4d7e66af72befb2e",
-    measurementId: "G-H388PDJ63P"
+  apiKey: "AIzaSyDRlpN1aSw5Ed9bvtp7tDsqhcezRTEpjxw",
+  authDomain: "farmsolutions-f9ab9.firebaseapp.com",
+  projectId: "farmsolutions-f9ab9",
+  storageBucket: "farmsolutions-f9ab9.appspot.com",
+  messagingSenderId: "268323594915",
+  appId: "1:268323594915:web:9e696114bda71f5cca5516"
   };
 // init firebase
 initializeApp(firebaseConfig)
