@@ -1,0 +1,26 @@
+{
+  "name": "farmSolutions",
+  "version": "1.0.0",
+  "description": "Integrated farm solutions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "buildproject": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jkvjerin/farmSolutions.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jkvjerin/farmSolutions/issues"
+  },
+  "homepage": "https://github.com/jkvjerin/farmSolutions#readme",
+  "devDependencies": {
+    "firebase": "^9.17.1",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  }
+}
