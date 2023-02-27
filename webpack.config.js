@@ -1,5 +1,5 @@
-const mode = require('webpack.production.config.js')
 const path = require('path')
+//const mode = require('webpack.production.config.js')
 var config = {
   // define entry point
   entry: './src/index.js',

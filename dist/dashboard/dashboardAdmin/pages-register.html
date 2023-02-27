@@ -11,12 +11,13 @@
 
   <!-- Favicons -->
   <link href="http://localhost/serverDirectory/farmSolutions/dashboardAdmin/assets/img/logosq.svg" rel="icon">
-  <link href="http://localhost/serverDirectory/farmSolutions/dashboardAdmin/assets/img/logosq.svg" rel="apple-touch-icon">
+  <link href="http://localhost/serverDirectory/farmSolutions/dashboardAdmin/assets/img/logosq.svg" rel="apple-touch-icon">x
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
+  <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.css" />  
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -42,51 +43,7 @@
     /* NOTE : Use web server to view HTML files as real-time update will not work if you directly open the HTML file in the browser. */
   </script>
   <!-- ------------------------------------------------------------------------------------- -->
-  <script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
-
-    import {
-      getFirestore, collection, getDocs
-      } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore";
   
-    // Your web app's Firebase configuration
-    const firebaseConfig = {
-      apiKey: "AIzaSyDRlpN1aSw5Ed9bvtp7tDsqhcezRTEpjxw",
-      authDomain: "farmsolutions-f9ab9.firebaseapp.com",
-      projectId: "farmsolutions-f9ab9",
-      storageBucket: "farmsolutions-f9ab9.appspot.com",
-      messagingSenderId: "268323594915",
-      appId: "1:268323594915:web:9e696114bda71f5cca5516"
-    };
-  
-    
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  
-  // init services
-  const db = getFirestore()
-  
-  // collection ref
-  const colRef = collection(db, 'books')
-  
-  // get collection data
-  getDocs(colRef)
-    .then(snapshot => {
-      // console.log(snapshot.docs)
-      let books = []
-      snapshot.docs.forEach(doc => {
-        books.push({ ...doc.data(), id: doc.id })
-      })
-      console.log(books)
-    })
-    .catch(err => {
-      console.log(err.message)
-    })
-  
-  </script>
   <style>
     body {background: url("https://wallpapercave.com/wp/wp2024187.jpg");}
   </style>
@@ -96,12 +53,12 @@
 <body>
 
   <main>
-    <div class="container">
+    <div class="container" >
 
       <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
         <div class="container">
           <div class="row justify-content-center">
-            <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
+            <div style="position: fixed;top: 0;" class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
 
               <div class="d-flex justify-content-center py-4">
                 <a href="index.html" class="logo d-flex align-items-center w-auto">
@@ -334,12 +291,12 @@ function validateRecaptcha() {
         canRegister = true;
       }
     };
- document.getElementById("submitButton").addEventListener("click", function(event){
-  if (canRegister !== true) {
-    event.preventDefault();
-    alert("Form is not valid. Please fix the errors and try again.");
-  }
-});
+//  document.getElementById("submitButton").addEventListener("click", function(event){
+//   if (canRegister !== true) {
+//     event.preventDefault();
+//     alert("Form is not valid. Please fix the errors and try again.");
+//   }
+// });
                     </script>
                   </form>
 
@@ -409,6 +366,22 @@ function validateRecaptcha() {
     background-color: rgb(255, 255, 255);}
     
 </style>
+<script src="http://localhost/ServerDirectory/farmSolutions/dist/main.js"></script>
+<dialog id="favDialog">
+  <form method="dialog">
+    <p>
+      <label>Sent Varification to 
+        <label for="emailVarify">
+          <input type="email" name="emailVarify" id="emailVarify">
+        </label>
+      </label>
+    </p>
+    <div>
+      <button value="unsuccessful">Cancel</button>
+      <button id="confirmSentVarify" value="">Sent Varification</button>
+    </div>
+  </form>
+</dialog>
 </body>
 
 </html>
