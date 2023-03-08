@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body >
+    <div>
+    <div style="display:flex;height:100vh;width: 100%;;justify-content: center;align-items: center;">
+     <form action="" method="post" enctype="multiple/form-data">
+     <input type="file"  name="" id="fileInputControl" multiple>
+     <script>
+        console.log("Doc loaded")
+        let filedemo= document.getElementById('fileInputControl');
+        console.log(filedemo.value)
+        console.log(typeof(filedemo.value))
+        console.log(filedemo.files)
+     </script>
+     <input type="submit" value="Upload File(s)">
+    </form></div>
+    </div>
+    
+    
+</body>
+</html>

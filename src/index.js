@@ -16,46 +16,48 @@ const firebaseConfig = {
   messagingSenderId: "268323594915",
   appId: "1:268323594915:web:9e696114bda71f5cca5516"
   };
+const date =new Date().toString;
+const consoleShow = `script running ${date}`;
 // init firebase------------
 initializeApp(firebaseConfig)
 
 // init services---------
 const db = getFirestore()
 const auth =getAuth()
-const authUi = ui.start('#firebaseui-auth-container', {
-  signInOptions: [{
-    provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
-    signInMethod: firebase.auth.EmailAuthProvider.EMAIL_LINK_SIGN_IN_METHOD
-  },
-  {
-    provider: firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-    scopes: [
-      'https://www.googleapis.com/auth/contacts.readonly'
-    ],
-    customParameters: {
-      // Forces account selection even when one account
-      // is available.
-      prompt: 'select_account'
-    }
-  },
-  {
-    provider: firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-    scopes: [
-      'public_profile',
-      'email',
-      'user_likes',
-      'user_friends'
-    ],
-    customParameters: {
-      // Forces password re-entry.
-      auth_type: 'reauthenticate'
-    }
-  },
-  firebase.auth.PhoneAuthProvider.PROVIDER_ID,
-  firebase,auth.Anonymou
-  ],
-  // Other config options...
-});
+// const authUi = ui.start('#firebaseui-auth-container', {
+//   signInOptions: [{
+//     provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
+//     signInMethod: firebase.auth.EmailAuthProvider.EMAIL_LINK_SIGN_IN_METHOD
+//   },
+//   {
+//     provider: firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+//     scopes: [
+//       'https://www.googleapis.com/auth/contacts.readonly'
+//     ],
+//     customParameters: {
+//       // Forces account selection even when one account
+//       // is available.
+//       prompt: 'select_account'
+//     }
+//   },
+//   {
+//     provider: firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+//     scopes: [
+//       'public_profile',
+//       'email',
+//       'user_likes',
+//       'user_friends'
+//     ],
+//     customParameters: {
+//       // Forces password re-entry.
+//       auth_type: 'reauthenticate'
+//     }
+//   },
+//   firebase.auth.PhoneAuthProvider.PROVIDER_ID,
+//   firebase,auth.Anonymou
+//   ],
+//   // Other config options...
+// });
 //connectAuthEmulator=(auth,"http://localhost")
 // Initialize the FirebaseUI Widget using Firebase.
 //var ui = new firebaseui.auth.AuthUI(firebase.auth());
@@ -132,6 +134,10 @@ signupForm.addEventListener('submit',(e)=>{
     favDialog.querySelector('#emailVarify').value=email;
     const emailVarify = favDialog.querySelector('#emailVarify');
     const confirmBtn = favDialog.querySelector('#confirmSentVarify')
+    function dialogVarify() {
+      if (confirm("continue to varification.")) {
+        favDialog.showModal();
+      } 
     createUserWithEmailAndPassword(auth,email,password)
       .then(()=>{
         function dialogVarify() {
@@ -181,7 +187,7 @@ signupForm.addEventListener('submit',(e)=>{
         alert(errorCode)
         alert(errorMessage)
       })
-  });
+  };
   
   // "Favorite animal" input sets the value of the submit button
   selectEl.addEventListener('change', (e) => {
@@ -191,9 +197,10 @@ signupForm.addEventListener('submit',(e)=>{
   favDialog.addEventListener('close', () => {
     outputBox.value = `ReturnValue: ${favDialog.returnValue}.`;
   });
-// document.getElementById("submitButton").addEventListener("click", function(event){
-//   if (canRegister !== true) {
-//     event.preventDefault();
-//     alert("Form is not valid. Please fix the errors and try again.");
-//   }
-// });
+  
+document.getElementById("submitButton").addEventListener("click", function(event){
+  if (canRegister !== true) {
+    event.preventDefault();
+    alert("Form is not valid. Please fix the errors and try again.");
+  }
+})})

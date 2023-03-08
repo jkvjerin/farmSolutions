@@ -1,5 +1,4 @@
-
-  const production= {
-    mode: 'production'
+var production= {
+    mode: 'production',
   };
   module.exports = production;
