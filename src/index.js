@@ -1,3 +1,6 @@
+//note: import defalt ,{non-defaultfn as aliasfn} from location.
+// import {linkfn,} from './insertWebAppIcon'
+// linkfn();
 import { initializeApp } from 'firebase/app'
 import {
   getFirestore, collection, getDocs,
@@ -7,6 +10,8 @@ import {
 import {
   getAuth,connectAuthEmulator,
   createUserWithEmailAndPassword}from 'firebase/auth'
+import { }from 'firebase/database'
+import { }from 'firebase/storage'
 
 const firebaseConfig = {
   apiKey: "AIzaSyDRlpN1aSw5Ed9bvtp7tDsqhcezRTEpjxw",
@@ -65,6 +70,7 @@ const auth =getAuth()
 // collection ref------------------------
 // const colRef = collection(db, 'books')
 const userdetails = collection(db, '@user')
+const productdetails = collection(db, 'product')
 
 // get collection data----------------------------
 // getDocs(colRef)
@@ -204,3 +210,38 @@ document.getElementById("submitButton").addEventListener("click", function(event
     alert("Form is not valid. Please fix the errors and try again.");
   }
 })})
+
+//adding docs into product-------------------------
+let imgUrl;
+let files = [];
+let reader ;
+ 
+document.getElementById("select").addEventListener('onclick',(ev)=>{
+  ev.preventDefault();
+  let input=document.createElement('input');
+  input.type='file';
+  input.click();
+  input.onchange = e =>{
+       files=ev.target.files;
+      reader = new FileReader();
+      reader.onload =function(){
+      document.getElementById("pro")
+      }
+  }
+})
+
+const addProductForm = document.querySelector('.addProduct')
+addProductForm.addEventListener('submit', (e) => {
+  e.preventDefault()
+
+  addDoc(productdetails, {
+    name: addProductForm.title.value,
+    quantity: addProductForm.author.value,
+    price: addProductForm.author.value,
+    weight: addProductForm.author.value,
+    details: addProductForm.author.value,
+  })
+  .then(() => {
+    addProductForm.reset()
+  })
+})
