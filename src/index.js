@@ -11,7 +11,7 @@ import {
   getAuth,connectAuthEmulator,
   createUserWithEmailAndPassword}from 'firebase/auth'
 import { }from 'firebase/database'
-import { }from 'firebase/storage'
+import {getStorage,ref }from 'firebase/storage'
 
 const firebaseConfig = {
   apiKey: "AIzaSyDRlpN1aSw5Ed9bvtp7tDsqhcezRTEpjxw",
@@ -21,6 +21,7 @@ const firebaseConfig = {
   messagingSenderId: "268323594915",
   appId: "1:268323594915:web:9e696114bda71f5cca5516"
   };
+
 const date =new Date().toString;
 const consoleShow = `script running ${date}`;
 // init firebase------------
@@ -71,7 +72,8 @@ const auth =getAuth()
 // const colRef = collection(db, 'books')
 const userdetails = collection(db, '@user')
 const productdetails = collection(db, 'product')
-
+const storageRef = ref(Storage)
+const imageRef = ref(storage,'images')
 // get collection data----------------------------
 // getDocs(colRef)
 //   .then(snapshot => {

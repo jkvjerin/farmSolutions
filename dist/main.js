@@ -53185,6 +53185,7 @@ const firebaseConfig = {
   messagingSenderId: "268323594915",
   appId: "1:268323594915:web:9e696114bda71f5cca5516"
   };
+
 const date =new Date().toString;
 const consoleShow = `script running ${date}`;
 // init firebase------------
@@ -53235,7 +53236,8 @@ const auth =(0,firebase_auth__WEBPACK_IMPORTED_MODULE_2__.getAuth)()
 // const colRef = collection(db, 'books')
 const userdetails = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.collection)(db, '@user')
 const productdetails = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.collection)(db, 'product')
-
+const storageRef = (0,firebase_storage__WEBPACK_IMPORTED_MODULE_4__.ref)(Storage)
+const imageRef = (0,firebase_storage__WEBPACK_IMPORTED_MODULE_4__.ref)(storage,'images')
 // get collection data----------------------------
 // getDocs(colRef)
 //   .then(snapshot => {
