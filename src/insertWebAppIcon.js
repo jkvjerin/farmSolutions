@@ -1,3 +1,11 @@
+export function linkfn(){
+const  link = document.createElement('link');
+link.rel = "icon";
+link.href = "https://farmsolutions-f9ab9.web.app/resources/images/logosq.svg";
+document.getElementsByTagName('head')[0].appendChild(link);
+// bluebd =document.getElementsByTagName('body');
+// bluebd.style = "body-background:blue"
+ }
 // function test()
 // {
 //     var element = document.createElement("div");
@@ -6,11 +14,3 @@
 //     //docu1ment.body.appendChild(element);
 // }
 // myAnchor.setAttribute("href", "https://www.w3schools.com");
-export function linkfn(){
-var link = document.createElement('link');
-link.rel = "icon";
-link.href = "https://farmsolutions-f9ab9.web.app/resources/images/logosq.svg";
-document.getElementsByTagName('head')[0].appendChild(link);
-// bluebd =document.getElementsByTagName('body');
-// bluebd.style = "body-background:blue"
-}

@@ -1,11 +1,11 @@
 const path = require('path')
 //const modepro = require('production')
-// import production from './webpack.production.config.js';
-var config = {
+// import { modepro } from '.\webpack-production-config.jsproduction'
+ const config = {
   // define entry point
   entry: './src/index.js',
-  // mode: 'development',
-  mode: 'development',
+   mode: 'development',
+  // mode: production,
   // define output point
   output: {
     path: path.resolve(__dirname, 'dist'),

@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
      <!--D:\APPS\xampp\htdocs\ServerDirectory\farmSolutions\dist\main.js -->
-    <script src="http://127.0.0.1:5500/dist/main.js" ></script>
+    <!-- <script src="http://127.0.0.1:5500/dist/main.js" ></script> -->
 </head>
 
 <body>
@@ -132,7 +132,7 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="./index.html"><img src="http://127.0.0.1:5500/resources/images/logo.svg" alt=""></a>
+                        <a href="./index.html"><img src="" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -251,38 +251,39 @@
                     </div>
                 </div>
             </div>
-            <form action="#" class="addProduct">
+            <form method="post" action="" class="addProduct">
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
-                        <input type="text" name="name" placeholder="Product name">
+                        <input type="text" name="name" placeholder="Product name" required>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         
-                        <input type="text" name="quantity" placeholder="Quantity (No of units)">
+                        <input type="number" name="quantity" placeholder="Quantity (No of units)" required>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <br>
-                        <input type="number" name="price" placeholder="price (₹) per unit">
+                        <input type="number" name="price" placeholder="price (₹) per unit" required>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <br>
-                        <input type="number" name="weight" placeholder="Weight (Kg) per unit">
+                        <input type="number" name="weight" placeholder="Weight (Kg) per unit" required>
                     </div>
                     
                     <div class="col-lg-6 col-md-6">
                         <br>
-                        <textarea name="details" placeholder="Product Description"></textarea>            </div>
-                     <div class="col-lg-12 ">
-                     <!-- <button style="padding: 10px;" id="select">Select Images</button> <br> -->
-                        <input style="padding: 5px;" type="file"  name="productPics" id="fileInputControl" multiple accept="image/*">
-                      </div> 
-                    <div class="text-center">
-                        <br>
-                    <img style="padding: 10px; width: 200px;height: 200px;" id="productImg"><br><label id="upProgress">demo
+                        <textarea name="details" placeholder="Product Description" required></textarea >            </div>
+                    <!-- <div class="col-lg-12 ">
+                    <button style="padding: 10px;" id="select">Select Images</button> <br>
+                            <input style="padding: 5px;" type="file"  name="productPics" id="fileInputControl" multiple accept="image/*">
+                        </div> 
+                        <div class="text-center">
+                            <br>
+                        <img style="padding: 10px; width: 200px;height: 200px;" id="productImg"><br><label id="upProgress">demo
 
                     </label>
                     </div>           
-                    </div>
+                    </div> -->
+                    
                     <br>
                     <div class="col-lg-12 text-center">
                         <button type="submit" class="site-btn">Upload Product</button>
@@ -343,7 +344,7 @@ p {
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="footer__about">
                         <div class="footer__about__logo">
-                            <a href="./index.html"><img src="http://127.0.0.1:5500/resources/images/logo.svg" alt=""></a>
+                            <a href="./index.html"><img src="./../resources/images/logo.svg" alt=""></a>
                         </div>
                         <ul>
                             <li>Address: 60-49 Road 11378 New York</li>
@@ -377,8 +378,8 @@ p {
                     <div class="footer__widget">
                         <h6>Join Our Newsletter Now</h6>
                         <p>Get E-mail updates about our latest shop and special offers.</p>
-                        <form action="#">
-                            <input type="text" placeholder="Enter your mail">
+                        <form action="#" class="addEmail" method="post">
+                            <input type="email" placeholder="Enter your mail" name="email" required>
                             <button type="submit" class="site-btn">Subscribe</button>
                         </form>
                         <div class="footer__widget__social">
@@ -413,8 +414,10 @@ p {
     <script src="js/mixitup.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
-
-
+    
+    <!-- D:\APPS\xampp\htdocs\ServerDirectory\farmSolutions\dist\ecomm\addProduct.html -->
+    <!-- dist/main.js -->
+    <script async defer src="./../main.js"></script>
 
 </body>
 

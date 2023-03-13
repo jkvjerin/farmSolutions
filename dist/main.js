@@ -50777,6 +50777,268 @@ function __classPrivateFieldIn(state, receiver) {
 
 /***/ }),
 
+/***/ "./src/addproduct.js":
+/*!***************************!*\
+  !*** ./src/addproduct.js ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ addProductJs),
+/* harmony export */   "fnAddproduct": () => (/* binding */ fnAddproduct)
+/* harmony export */ });
+/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! firebase/app */ "./node_modules/firebase/app/dist/esm/index.esm.js");
+/* harmony import */ var firebase_firestore__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! firebase/firestore */ "./node_modules/firebase/firestore/dist/esm/index.esm.js");
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDRlpN1aSw5Ed9bvtp7tDsqhcezRTEpjxw",
+  authDomain: "farmsolutions-f9ab9.firebaseapp.com",
+  projectId: "farmsolutions-f9ab9",
+  storageBucket: "farmsolutions-f9ab9.appspot.com",
+  messagingSenderId: "268323594915",
+  appId: "1:268323594915:web:9e696114bda71f5cca5516"
+  };
+const date =new Date
+const consoleShow = `\n----------------------------\nScript running Time ${date}\n----------------------------`;
+const app = (0,firebase_app__WEBPACK_IMPORTED_MODULE_0__.initializeApp)(firebaseConfig);
+const db  = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.getFirestore)();
+const productdetails = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.collection)(db, 'product');
+function addProductJs(){
+
+              const addProductForm = document.querySelector('.addProduct')
+              addProductForm.addEventListener('submit', (e) => {
+                                              e.preventDefault()
+                                              
+                                              
+                                              ;(0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.addDoc)(productdetails, {
+                                                name: addProductForm.name.value,
+                                                quantity: Number(addProductForm.quantity.value),
+                                                price: Number(addProductForm.price.value),
+                                                weight: Number(addProductForm.weight.value),
+                                                details: addProductForm.details.value,
+                                                createdAt: (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.serverTimestamp)(),
+                                              })
+                                              .then(() => {
+                                                alert("Product added")
+                                                addProductForm.reset()
+                                              })
+                                              .catch(()=>{
+                                                console.log("error fileInputControladdEventListener ")
+                                              })
+                                            })
+              }
+function fnAddproduct(){
+  console.log(`exported script from addproduct ${consoleShow}`)
+}
+
+/***/ }),
+
+/***/ "./src/addtonewsletter.js":
+/*!********************************!*\
+  !*** ./src/addtonewsletter.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ addEmailtonewsletterJs),
+/* harmony export */   "fnAddEmail": () => (/* binding */ fnAddEmail)
+/* harmony export */ });
+/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! firebase/app */ "./node_modules/firebase/app/dist/esm/index.esm.js");
+/* harmony import */ var firebase_firestore__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! firebase/firestore */ "./node_modules/firebase/firestore/dist/esm/index.esm.js");
+
+
+// import {getDownloadURL,deleteObject,getStorage,ref } from 'firebase/storage'
+const firebaseConfig = {
+  apiKey: "AIzaSyDRlpN1aSw5Ed9bvtp7tDsqhcezRTEpjxw",
+  authDomain: "farmsolutions-f9ab9.firebaseapp.com",
+  projectId: "farmsolutions-f9ab9",
+  storageBucket: "farmsolutions-f9ab9.appspot.com",
+  messagingSenderId: "268323594915",
+  appId: "1:268323594915:web:9e696114bda71f5cca5516"
+  };
+const app = (0,firebase_app__WEBPACK_IMPORTED_MODULE_0__.initializeApp)(firebaseConfig);
+
+// init services---------
+const db  = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.getFirestore)();
+// collection ref------------------------
+const emaildetails = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.collection)(db, 'email');
+function addEmailtonewsletterJs(){
+
+console.log("exported script from addtonewsletter")
+const addEmailForm = document.querySelector('.addEmail')
+addEmailForm.addEventListener('submit', (e) => {
+  e.preventDefault()
+
+  ;(0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.addDoc)(emaildetails, {
+    email: addEmailForm.email.value,
+    createdAt: (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.serverTimestamp)(),
+  })
+  .then(() => {
+    addEmailForm.reset()
+  })
+  .catch(()=>{
+    console.log("error addEmailEventListener ")
+  })
+})
+}
+function fnAddEmail(){
+  console.log(`exported script from addtonewsletter 🗞️`)
+}
+
+/***/ }),
+
+/***/ "./src/insertWebAppIcon.js":
+/*!*********************************!*\
+  !*** ./src/insertWebAppIcon.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "linkfn": () => (/* binding */ linkfn)
+/* harmony export */ });
+function linkfn(){
+const  link = document.createElement('link');
+link.rel = "icon";
+link.href = "https://farmsolutions-f9ab9.web.app/resources/images/logosq.svg";
+document.getElementsByTagName('head')[0].appendChild(link);
+// bluebd =document.getElementsByTagName('body');
+// bluebd.style = "body-background:blue"
+ }
+// function test()
+// {
+//     var element = document.createElement("div");
+//     element.appendChild(document.createTextNode('The man who mistook his wife for a hat'));
+//     document.getElementbyId('lc').appendChild(element);
+//     //docu1ment.body.appendChild(element);
+// }
+// myAnchor.setAttribute("href", "https://www.w3schools.com");
+
+/***/ }),
+
+/***/ "./src/signup.js":
+/*!***********************!*\
+  !*** ./src/signup.js ***!
+  \***********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   "fnsignup": () => (/* binding */ fnsignup)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (()=>{
+ //signing users up
+const signupForm =document.querySelector('#regForm')
+if (signupForm === null) {
+  //if null
+} else {
+signupForm.addEventListener('submit',(e)=>{
+  const name = signupForm.name.value;
+  const email=signupForm.email.value;
+  const password=signupForm.password.value;
+  e.preventDefault();
+  // alert("Form is not valid. Please fix the errors and try again.");
+
+   addDoc(userdetails, 
+            {
+            name: name,
+            email: email,
+            password: password,
+            createdAt: serverTimestamp()
+              })
+                .then(() => {
+                  signupForm.reset()
+                }).catch(()=>{
+                  console.log("signupform error addEventListener ")
+                })
+const favDialog = document.getElementById('favDialog');
+favDialog.querySelector('#emailVarify').value=email;
+const emailVarify = favDialog.querySelector('#emailVarify');
+const confirmBtn = favDialog.querySelector('#confirmSentVarify')
+function dialogVarify() {
+if (confirm("continue to varification.")) {
+favDialog.showModal();
+} 
+createUserWithEmailAndPassword(auth,email,password)
+.then(()=>{
+function dialogVarify() {
+if (confirm("continue to varification.")) {
+favDialog.showModal();
+} 
+}
+alert('user created')
+dialogVarify();
+emailVarify.addEventListener('input', (e) => {
+confirmSentVarify.value = emailVarify.value;
+
+});
+// "Confirm" button of form triggers "close" on dialog because of [method="dialog"]
+favDialog.addEventListener('close', () => {
+
+if ( favDialog.returnValue == null || favDialog.returnValue == "") {
+alert( ` Varification sent ${favDialog.returnValue}.`);
+} else {
+alert( `Varification sent ${favDialog.returnValue}.`);
+}
+});
+// console.log('user created',cred.user)
+const actionCodeSettings = {
+// URL you want to redirect back to. The domain (www.example.com) for this
+// URL must be in the authorized domains list in the Firebase Console.
+url: 'https://www.example.com/finishSignUp?cartId=1234',
+// This must be true.
+handleCodeInApp: true,
+// iOS: {
+//   bundleId: 'com.example.ios'
+// },
+// android: {
+//   packageName: 'com.example.android',
+//   installApp: true,
+//   minimumVersion: '12'
+// },
+dynamicLinkDomain: 'example.page.link'
+};
+signupForm.reset();
+//location.replace("http://localhost/ServerDirectory/farmSolutions/dist/dashboard/dashboardAdmin/pages-login.html")
+})
+.catch((err)=>{
+const errorCode = err.code;
+const errorMessage = err.message;
+
+alert(errorCode)
+alert(errorMessage)
+})
+};
+
+// "Favorite animal" input sets the value of the submit button
+selectEl.addEventListener('change', (e) => {
+confirmBtn.value = selectEl.value;
+});
+// "Confirm" button of form triggers "close" on dialog because of [method="dialog"]
+favDialog.addEventListener('close', () => {
+outputBox.value = `ReturnValue: ${favDialog.returnValue}.`;
+});
+
+document.getElementById("submitButton").addEventListener("click", function(event){
+if (canRegister !== true) {
+event.preventDefault();
+alert("Form is not valid. Please fix the errors and try again.");
+}
+})})
+}
+
+   
+});
+function fnsignup(){
+    console.log(`exported script from signup.js`)
+  }
+
+/***/ }),
+
 /***/ "./node_modules/@firebase/app/dist/esm/index.esm2017.js":
 /*!**************************************************************!*\
   !*** ./node_modules/@firebase/app/dist/esm/index.esm2017.js ***!
@@ -53163,15 +53425,23 @@ var __webpack_exports__ = {};
   !*** ./src/index.js ***!
   \**********************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! firebase/app */ "./node_modules/firebase/app/dist/esm/index.esm.js");
-/* harmony import */ var firebase_firestore__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! firebase/firestore */ "./node_modules/firebase/firestore/dist/esm/index.esm.js");
-/* harmony import */ var firebase_auth__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! firebase/auth */ "./node_modules/firebase/auth/dist/esm/index.esm.js");
-/* harmony import */ var firebase_database__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! firebase/database */ "./node_modules/firebase/database/dist/esm/index.esm.js");
-/* harmony import */ var firebase_storage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! firebase/storage */ "./node_modules/firebase/storage/dist/esm/index.esm.js");
-//note: import defalt ,{non-defaultfn as aliasfn} from location.
-// import {linkfn,} from './insertWebAppIcon'
-// linkfn();
+/* harmony import */ var _insertWebAppIcon_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./insertWebAppIcon.js */ "./src/insertWebAppIcon.js");
+/* harmony import */ var _signup_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./signup.js */ "./src/signup.js");
+/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! firebase/app */ "./node_modules/firebase/app/dist/esm/index.esm.js");
+/* harmony import */ var firebase_firestore__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! firebase/firestore */ "./node_modules/firebase/firestore/dist/esm/index.esm.js");
+/* harmony import */ var firebase_auth__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! firebase/auth */ "./node_modules/firebase/auth/dist/esm/index.esm.js");
+/* harmony import */ var firebase_database__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! firebase/database */ "./node_modules/firebase/database/dist/esm/index.esm.js");
+/* harmony import */ var firebase_storage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! firebase/storage */ "./node_modules/firebase/storage/dist/esm/index.esm.js");
+/* harmony import */ var _addproduct_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./addproduct.js */ "./src/addproduct.js");
+/* harmony import */ var _addtonewsletter_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./addtonewsletter.js */ "./src/addtonewsletter.js");
+console.log(`Main script is "Running👌"`);
+//TODO: import defalt ,{non-defaultfn as aliasfn} from location.
 
+(0,_insertWebAppIcon_js__WEBPACK_IMPORTED_MODULE_0__.linkfn)();
+
+(0,_signup_js__WEBPACK_IMPORTED_MODULE_1__.fnsignup)();
+
+// import { getRemoteConfig,fetchAndActivate, fetchConfig, activate, getValue}from 'firebase/remote-config'
 
 
 
@@ -53189,55 +53459,41 @@ const firebaseConfig = {
 const date =new Date().toString;
 const consoleShow = `script running ${date}`;
 // init firebase------------
-(0,firebase_app__WEBPACK_IMPORTED_MODULE_0__.initializeApp)(firebaseConfig)
+const app = (0,firebase_app__WEBPACK_IMPORTED_MODULE_2__.initializeApp)(firebaseConfig);
 
 // init services---------
-const db = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.getFirestore)()
-const auth =(0,firebase_auth__WEBPACK_IMPORTED_MODULE_2__.getAuth)()
-// const authUi = ui.start('#firebaseui-auth-container', {
-//   signInOptions: [{
-//     provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
-//     signInMethod: firebase.auth.EmailAuthProvider.EMAIL_LINK_SIGN_IN_METHOD
-//   },
-//   {
-//     provider: firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-//     scopes: [
-//       'https://www.googleapis.com/auth/contacts.readonly'
-//     ],
-//     customParameters: {
-//       // Forces account selection even when one account
-//       // is available.
-//       prompt: 'select_account'
-//     }
-//   },
-//   {
-//     provider: firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-//     scopes: [
-//       'public_profile',
-//       'email',
-//       'user_likes',
-//       'user_friends'
-//     ],
-//     customParameters: {
-//       // Forces password re-entry.
-//       auth_type: 'reauthenticate'
-//     }
-//   },
-//   firebase.auth.PhoneAuthProvider.PROVIDER_ID,
-//   firebase,auth.Anonymou
-//   ],
-//   // Other config options...
-// });
-//connectAuthEmulator=(auth,"http://localhost")
-// Initialize the FirebaseUI Widget using Firebase.
-//var ui = new firebaseui.auth.AuthUI(firebase.auth());
+const db  = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_3__.getFirestore)();
+const auth = (0,firebase_auth__WEBPACK_IMPORTED_MODULE_4__.getAuth)();
 
 // collection ref------------------------
 // const colRef = collection(db, 'books')
-const userdetails = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.collection)(db, '@user')
-const productdetails = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.collection)(db, 'product')
-const storageRef = (0,firebase_storage__WEBPACK_IMPORTED_MODULE_4__.ref)(Storage)
-const imageRef = (0,firebase_storage__WEBPACK_IMPORTED_MODULE_4__.ref)(storage,'images')
+const userdetails = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_3__.collection)(db, '@user');
+const productdetails = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_3__.collection)(db, 'product');
+// const storageRef = ref(Storage)// makefolder
+// -------------------------------------------------
+// const imageRef = ref(storageRef,'images')
+// const sparkRef = ref(storageRef,'images/spark.jpg');
+// getDownloadURL(sparkRef)
+// .then((url) => {
+//   const xhr = new XMLHttpRequest();
+//   xhr.responseType() = 'blob'
+//   xhr.onload =(evn) => {
+//     const blob = xhr.response;
+//   };
+//   xhr.open('GET',url);
+//   xhr.send();
+//   // insert into am image element 
+//   const img1= document.getElementById('myimages1');
+//   img1.setAttribute('src',url); 
+// })
+// .catch((e1 => {
+//   // handle error
+// // });
+// deleteObject(sparkRef).then(()=>{
+//   console.log('file deleted');
+// }).catch(()=>{console.log('error w/h file upload')})
+
+
 // get collection data----------------------------
 // getDocs(colRef)
 //   .then(snapshot => {
@@ -53282,135 +53538,8 @@ const imageRef = (0,firebase_storage__WEBPACK_IMPORTED_MODULE_4__.ref)(storage,'
 //       deleteBookForm.reset()
 //     })
 // })
-//signing users up
-const signupForm =document.querySelector('#regForm')
-
-signupForm.addEventListener('submit',(e)=>{
-  const name = signupForm.name.value;
-  const email=signupForm.email.value;
-  const password=signupForm.password.value;
-    e.preventDefault();
-    // alert("Form is not valid. Please fix the errors and try again.");
-  
-    (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.addDoc)(userdetails, 
-      {
-      name: name,
-      email: email,
-      password: password,
-      createdAt: (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.serverTimestamp)()
-    })
-    .then(() => {
-      signupForm.reset()
-    })
-    const favDialog = document.getElementById('favDialog');
-    favDialog.querySelector('#emailVarify').value=email;
-    const emailVarify = favDialog.querySelector('#emailVarify');
-    const confirmBtn = favDialog.querySelector('#confirmSentVarify')
-    function dialogVarify() {
-      if (confirm("continue to varification.")) {
-        favDialog.showModal();
-      } 
-    (0,firebase_auth__WEBPACK_IMPORTED_MODULE_2__.createUserWithEmailAndPassword)(auth,email,password)
-      .then(()=>{
-        function dialogVarify() {
-          if (confirm("continue to varification.")) {
-            favDialog.showModal();
-          } 
-        }
-        alert('user created')
-        dialogVarify();
-        emailVarify.addEventListener('input', (e) => {
-          confirmSentVarify.value = emailVarify.value;
-          
-        });
-        // "Confirm" button of form triggers "close" on dialog because of [method="dialog"]
-        favDialog.addEventListener('close', () => {
-           
-        if ( favDialog.returnValue == null || favDialog.returnValue == "") {
-        alert( ` Varification sent ${favDialog.returnValue}.`);
-      } else {
-        alert( `Varification sent ${favDialog.returnValue}.`);
-      }
-        });
-        // console.log('user created',cred.user)
-        const actionCodeSettings = {
-          // URL you want to redirect back to. The domain (www.example.com) for this
-          // URL must be in the authorized domains list in the Firebase Console.
-          url: 'https://www.example.com/finishSignUp?cartId=1234',
-          // This must be true.
-          handleCodeInApp: true,
-          // iOS: {
-          //   bundleId: 'com.example.ios'
-          // },
-          // android: {
-          //   packageName: 'com.example.android',
-          //   installApp: true,
-          //   minimumVersion: '12'
-          // },
-          dynamicLinkDomain: 'example.page.link'
-        };
-        signupForm.reset();
-        //location.replace("http://localhost/ServerDirectory/farmSolutions/dist/dashboard/dashboardAdmin/pages-login.html")
-      })
-      .catch((err)=>{
-        const errorCode = err.code;
-        const errorMessage = err.message;
-
-        alert(errorCode)
-        alert(errorMessage)
-      })
-  };
-  
-  // "Favorite animal" input sets the value of the submit button
-  selectEl.addEventListener('change', (e) => {
-    confirmBtn.value = selectEl.value;
-  });
-  // "Confirm" button of form triggers "close" on dialog because of [method="dialog"]
-  favDialog.addEventListener('close', () => {
-    outputBox.value = `ReturnValue: ${favDialog.returnValue}.`;
-  });
-  
-document.getElementById("submitButton").addEventListener("click", function(event){
-  if (canRegister !== true) {
-    event.preventDefault();
-    alert("Form is not valid. Please fix the errors and try again.");
-  }
-})})
-
-//adding docs into product-------------------------
-let imgUrl;
-let files = [];
-let reader ;
- 
-document.getElementById("select").addEventListener('onclick',(ev)=>{
-  ev.preventDefault();
-  let input=document.createElement('input');
-  input.type='file';
-  input.click();
-  input.onchange = e =>{
-       files=ev.target.files;
-      reader = new FileReader();
-      reader.onload =function(){
-      document.getElementById("pro")
-      }
-  }
-})
-
-const addProductForm = document.querySelector('.addProduct')
-addProductForm.addEventListener('submit', (e) => {
-  e.preventDefault()
-
-  ;(0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.addDoc)(productdetails, {
-    name: addProductForm.title.value,
-    quantity: addProductForm.author.value,
-    price: addProductForm.author.value,
-    weight: addProductForm.author.value,
-    details: addProductForm.author.value,
-  })
-  .then(() => {
-    addProductForm.reset()
-  })
-})
+(0,_addproduct_js__WEBPACK_IMPORTED_MODULE_7__.fnAddproduct)();(0,_addproduct_js__WEBPACK_IMPORTED_MODULE_7__["default"])();
+(0,_addtonewsletter_js__WEBPACK_IMPORTED_MODULE_8__.fnAddEmail)();(0,_addtonewsletter_js__WEBPACK_IMPORTED_MODULE_8__["default"])();
 })();
 
 /******/ })()

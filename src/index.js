@@ -1,17 +1,21 @@
-//note: import defalt ,{non-defaultfn as aliasfn} from location.
-// import {linkfn,} from './insertWebAppIcon'
-// linkfn();
-import { initializeApp } from 'firebase/app'
+console.log(`Main script is "Running👌"`);
+//TODO: import defalt ,{non-defaultfn as aliasfn} from location.
+import {linkfn,} from './insertWebAppIcon.js';
+linkfn();
+import {fnsignup} from './signup.js'
+fnsignup();
+import  { initializeApp } from 'firebase/app';
+// import { getRemoteConfig,fetchAndActivate, fetchConfig, activate, getValue}from 'firebase/remote-config'
 import {
   getFirestore, collection, getDocs,
   addDoc, deleteDoc, doc,
   query, where,
-  orderBy, serverTimestamp} from 'firebase/firestore'
+  orderBy, serverTimestamp} from 'firebase/firestore';
 import {
   getAuth,connectAuthEmulator,
   createUserWithEmailAndPassword}from 'firebase/auth'
-import { }from 'firebase/database'
-import {getStorage,ref }from 'firebase/storage'
+import { } from 'firebase/database';
+import {getDownloadURL,deleteObject,getStorage,ref } from 'firebase/storage'
 
 const firebaseConfig = {
   apiKey: "AIzaSyDRlpN1aSw5Ed9bvtp7tDsqhcezRTEpjxw",
@@ -25,55 +29,41 @@ const firebaseConfig = {
 const date =new Date().toString;
 const consoleShow = `script running ${date}`;
 // init firebase------------
-initializeApp(firebaseConfig)
+const app = initializeApp(firebaseConfig);
 
 // init services---------
-const db = getFirestore()
-const auth =getAuth()
-// const authUi = ui.start('#firebaseui-auth-container', {
-//   signInOptions: [{
-//     provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
-//     signInMethod: firebase.auth.EmailAuthProvider.EMAIL_LINK_SIGN_IN_METHOD
-//   },
-//   {
-//     provider: firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-//     scopes: [
-//       'https://www.googleapis.com/auth/contacts.readonly'
-//     ],
-//     customParameters: {
-//       // Forces account selection even when one account
-//       // is available.
-//       prompt: 'select_account'
-//     }
-//   },
-//   {
-//     provider: firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-//     scopes: [
-//       'public_profile',
-//       'email',
-//       'user_likes',
-//       'user_friends'
-//     ],
-//     customParameters: {
-//       // Forces password re-entry.
-//       auth_type: 'reauthenticate'
-//     }
-//   },
-//   firebase.auth.PhoneAuthProvider.PROVIDER_ID,
-//   firebase,auth.Anonymou
-//   ],
-//   // Other config options...
-// });
-//connectAuthEmulator=(auth,"http://localhost")
-// Initialize the FirebaseUI Widget using Firebase.
-//var ui = new firebaseui.auth.AuthUI(firebase.auth());
+const db  = getFirestore();
+const auth = getAuth();
 
 // collection ref------------------------
 // const colRef = collection(db, 'books')
-const userdetails = collection(db, '@user')
-const productdetails = collection(db, 'product')
-const storageRef = ref(Storage)
-const imageRef = ref(storage,'images')
+const userdetails = collection(db, '@user');
+const productdetails = collection(db, 'product');
+// const storageRef = ref(Storage)// makefolder
+// -------------------------------------------------
+// const imageRef = ref(storageRef,'images')
+// const sparkRef = ref(storageRef,'images/spark.jpg');
+// getDownloadURL(sparkRef)
+// .then((url) => {
+//   const xhr = new XMLHttpRequest();
+//   xhr.responseType() = 'blob'
+//   xhr.onload =(evn) => {
+//     const blob = xhr.response;
+//   };
+//   xhr.open('GET',url);
+//   xhr.send();
+//   // insert into am image element 
+//   const img1= document.getElementById('myimages1');
+//   img1.setAttribute('src',url); 
+// })
+// .catch((e1 => {
+//   // handle error
+// // });
+// deleteObject(sparkRef).then(()=>{
+//   console.log('file deleted');
+// }).catch(()=>{console.log('error w/h file upload')})
+
+
 // get collection data----------------------------
 // getDocs(colRef)
 //   .then(snapshot => {
@@ -118,132 +108,5 @@ const imageRef = ref(storage,'images')
 //       deleteBookForm.reset()
 //     })
 // })
-//signing users up
-const signupForm =document.querySelector('#regForm')
-
-signupForm.addEventListener('submit',(e)=>{
-  const name = signupForm.name.value;
-  const email=signupForm.email.value;
-  const password=signupForm.password.value;
-    e.preventDefault();
-    // alert("Form is not valid. Please fix the errors and try again.");
-  
-    addDoc(userdetails, 
-      {
-      name: name,
-      email: email,
-      password: password,
-      createdAt: serverTimestamp()
-    })
-    .then(() => {
-      signupForm.reset()
-    })
-    const favDialog = document.getElementById('favDialog');
-    favDialog.querySelector('#emailVarify').value=email;
-    const emailVarify = favDialog.querySelector('#emailVarify');
-    const confirmBtn = favDialog.querySelector('#confirmSentVarify')
-    function dialogVarify() {
-      if (confirm("continue to varification.")) {
-        favDialog.showModal();
-      } 
-    createUserWithEmailAndPassword(auth,email,password)
-      .then(()=>{
-        function dialogVarify() {
-          if (confirm("continue to varification.")) {
-            favDialog.showModal();
-          } 
-        }
-        alert('user created')
-        dialogVarify();
-        emailVarify.addEventListener('input', (e) => {
-          confirmSentVarify.value = emailVarify.value;
-          
-        });
-        // "Confirm" button of form triggers "close" on dialog because of [method="dialog"]
-        favDialog.addEventListener('close', () => {
-           
-        if ( favDialog.returnValue == null || favDialog.returnValue == "") {
-        alert( ` Varification sent ${favDialog.returnValue}.`);
-      } else {
-        alert( `Varification sent ${favDialog.returnValue}.`);
-      }
-        });
-        // console.log('user created',cred.user)
-        const actionCodeSettings = {
-          // URL you want to redirect back to. The domain (www.example.com) for this
-          // URL must be in the authorized domains list in the Firebase Console.
-          url: 'https://www.example.com/finishSignUp?cartId=1234',
-          // This must be true.
-          handleCodeInApp: true,
-          // iOS: {
-          //   bundleId: 'com.example.ios'
-          // },
-          // android: {
-          //   packageName: 'com.example.android',
-          //   installApp: true,
-          //   minimumVersion: '12'
-          // },
-          dynamicLinkDomain: 'example.page.link'
-        };
-        signupForm.reset();
-        //location.replace("http://localhost/ServerDirectory/farmSolutions/dist/dashboard/dashboardAdmin/pages-login.html")
-      })
-      .catch((err)=>{
-        const errorCode = err.code;
-        const errorMessage = err.message;
-
-        alert(errorCode)
-        alert(errorMessage)
-      })
-  };
-  
-  // "Favorite animal" input sets the value of the submit button
-  selectEl.addEventListener('change', (e) => {
-    confirmBtn.value = selectEl.value;
-  });
-  // "Confirm" button of form triggers "close" on dialog because of [method="dialog"]
-  favDialog.addEventListener('close', () => {
-    outputBox.value = `ReturnValue: ${favDialog.returnValue}.`;
-  });
-  
-document.getElementById("submitButton").addEventListener("click", function(event){
-  if (canRegister !== true) {
-    event.preventDefault();
-    alert("Form is not valid. Please fix the errors and try again.");
-  }
-})})
-
-//adding docs into product-------------------------
-let imgUrl;
-let files = [];
-let reader ;
- 
-document.getElementById("select").addEventListener('onclick',(ev)=>{
-  ev.preventDefault();
-  let input=document.createElement('input');
-  input.type='file';
-  input.click();
-  input.onchange = e =>{
-       files=ev.target.files;
-      reader = new FileReader();
-      reader.onload =function(){
-      document.getElementById("pro")
-      }
-  }
-})
-
-const addProductForm = document.querySelector('.addProduct')
-addProductForm.addEventListener('submit', (e) => {
-  e.preventDefault()
-
-  addDoc(productdetails, {
-    name: addProductForm.title.value,
-    quantity: addProductForm.author.value,
-    price: addProductForm.author.value,
-    weight: addProductForm.author.value,
-    details: addProductForm.author.value,
-  })
-  .then(() => {
-    addProductForm.reset()
-  })
-})
+import addProductJs, {fnAddproduct} from './addproduct.js';fnAddproduct();addProductJs();
+import addEmailtonewsletterJs, {fnAddEmail} from './addtonewsletter.js';fnAddEmail();addEmailtonewsletterJs();

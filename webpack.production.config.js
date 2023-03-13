@@ -1,4 +1,4 @@
-var production= {
-    mode: 'production',
-  };
-  module.exports = production;
+// var production= {
+//     mode: 'production',
+//   };
+//   module.exports = production;
