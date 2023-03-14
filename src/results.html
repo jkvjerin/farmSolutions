@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+    <div id="results"></div>
+    <a href="/"> Back to Form</a>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const email = urlParams.get('email');
+        const password = urlParams.get('password');
+        const results = document.getElementById('results');
+        results.innerHTML = `Your email is ${email} and your password is ${password}`;
+
+        // ---------------------------------------------
+        const paramsString = "q=URLUtils.searchParams&topic=api";
+        const searchParams = new URLSearchParams(paramsString);
+
+        // Iterating the search parameters
+        for (const p of searchParams) {
+        console.log(p);
+        }
+
+        console.log(searchParams.has("topic")); // true
+        console.log(searchParams.get("topic") === "api"); // true
+        console.log(searchParams.getAll("topic")); // ["api"]
+        console.log(searchParams.get("foo") === null); // true
+        console.log(searchParams.append("topic", "webdev"));
+        console.log(searchParams.toString()); // "q=URLUtils.searchParams&topic=api&topic=webdev"
+        console.log(searchParams.set("topic", "More webdev"));
+        console.log(searchParams.toString()); // "q=URLUtils.searchParams&topic=More+webdev"
+        console.log(searchParams.delete("topic"));
+        console.log(searchParams.toString()); // "q=URLUtils.searchParams"
+</script>
+</body>
+</html>
