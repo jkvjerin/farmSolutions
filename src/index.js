@@ -108,5 +108,7 @@ const productdetails = collection(db, 'product');
 //       deleteBookForm.reset()
 //     })
 // })
-import addProductJs, {fnAddproduct} from './addproduct.js';fnAddproduct();addProductJs();
-import addEmailtonewsletterJs, {fnAddEmail} from './addtonewsletter.js';fnAddEmail();addEmailtonewsletterJs();
+import addProductJs, {fnAddproduct} from './addproduct.js';
+fnAddproduct();addProductJs();
+import addEmailtonewsletterJs, {fnAddEmail} from './addtonewsletter.js';
+fnAddEmail();addEmailtonewsletterJs();

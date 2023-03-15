@@ -50790,8 +50790,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! firebase/app */ "./node_modules/firebase/app/dist/esm/index.esm.js");
 /* harmony import */ var firebase_firestore__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! firebase/firestore */ "./node_modules/firebase/firestore/dist/esm/index.esm.js");
+/* harmony import */ var firebase_storage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! firebase/storage */ "./node_modules/firebase/storage/dist/esm/index.esm.js");
 
 
+  
 const firebaseConfig = {
   apiKey: "AIzaSyDRlpN1aSw5Ed9bvtp7tDsqhcezRTEpjxw",
   authDomain: "farmsolutions-f9ab9.firebaseapp.com",
@@ -50804,15 +50806,49 @@ const date =new Date
 const consoleShow = `\n----------------------------\nScript running Time ${date}\n----------------------------`;
 const app = (0,firebase_app__WEBPACK_IMPORTED_MODULE_0__.initializeApp)(firebaseConfig);
 const db  = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.getFirestore)();
+const stor=(0,firebase_storage__WEBPACK_IMPORTED_MODULE_2__.getStorage)();
+
 const productdetails = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.collection)(db, 'product');
+let imgvar;
+let storref;
 function addProductJs(){
 
               const addProductForm = document.querySelector('.addProduct')
+              document.querySelector('#fileInputControl').addEventListener('change', (eimg) => {
+                eimg.preventDefault()
+              // console.log(document.getElementById('fileInputControl').files[0]) ;
+              imgvar =document.getElementById('fileInputControl').files[0];
+              const storref = (0,firebase_storage__WEBPACK_IMPORTED_MODULE_2__.ref)(stor,`/images/${imgvar.name}`);
+
+             console.log((0,firebase_storage__WEBPACK_IMPORTED_MODULE_2__.getDownloadURL)(storref));
+
+            //  const uploadTask =  fileRef.put(e.target.files[0])
+            //   storref.on('state_changed', 
+            //     (snapshot) => {
+                  
+            //       var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            //       if(progress=='100') alert('uploaded')
+            //     }, 
+            //     (error) => {
+            //     console.log(error)
+            //     }, 
+                // () => {
+                  
+                 // uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
+                   
+                    // document.querySelector('#proimg').src = downloadURL
+                    // firebase.auth().currentUser.updateProfile({
+                    //   photoURL: downloadURL
+                    // })
+                  // });
+                // }
+              // );
+              //
+            }
+              )
               addProductForm.addEventListener('submit', (e) => {
                                               e.preventDefault()
-                                              
-                                              
-                                              ;(0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.addDoc)(productdetails, {
+                                                ;(0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.addDoc)(productdetails, {
                                                 name: addProductForm.name.value,
                                                 quantity: Number(addProductForm.quantity.value),
                                                 price: Number(addProductForm.price.value),
@@ -50831,7 +50867,15 @@ function addProductJs(){
               }
 function fnAddproduct(){
   console.log(`exported script from addproduct ${consoleShow}`)
+
 }
+// export function fnimgfile(){
+//   document.querySelector('#fileInputControl').addEventListener('change', (eimg) => {
+//     eimg.preventDefault()
+//   console.log(document.getElementById('fileInputControl')) ;
+//   })
+// }
+
 
 /***/ }),
 
@@ -53538,7 +53582,9 @@ const productdetails = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_3__.collec
 //       deleteBookForm.reset()
 //     })
 // })
+
 (0,_addproduct_js__WEBPACK_IMPORTED_MODULE_7__.fnAddproduct)();(0,_addproduct_js__WEBPACK_IMPORTED_MODULE_7__["default"])();
+
 (0,_addtonewsletter_js__WEBPACK_IMPORTED_MODULE_8__.fnAddEmail)();(0,_addtonewsletter_js__WEBPACK_IMPORTED_MODULE_8__["default"])();
 })();
 
