@@ -1,4 +1,5 @@
-export default ()=>{
+export default function signuptoapp() {
+  console.log(`from signup.js`)
  //signing users up
 const signupForm =document.querySelector('#regForm')
 if (signupForm === null) {

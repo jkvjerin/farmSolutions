@@ -26666,461 +26666,6 @@ var FetchXmlHttpFactory = esm.FetchXmlHttpFactory=ed;var WebChannel = esm.WebCha
 
 /***/ }),
 
-/***/ "./src/addproduct.js":
-/*!***************************!*\
-  !*** ./src/addproduct.js ***!
-  \***************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ addProductJs),
-/* harmony export */   "fnAddproduct": () => (/* binding */ fnAddproduct),
-/* harmony export */   "returnDocid": () => (/* binding */ returnDocid)
-/* harmony export */ });
-/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! firebase/app */ "./node_modules/firebase/app/dist/esm/index.esm.js");
-/* harmony import */ var firebase_firestore__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! firebase/firestore */ "./node_modules/firebase/firestore/dist/esm/index.esm.js");
-/* harmony import */ var firebase_storage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! firebase/storage */ "./node_modules/firebase/storage/dist/esm/index.esm.js");
-
-
-  
-const firebaseConfig = {
-  apiKey: "AIzaSyDRlpN1aSw5Ed9bvtp7tDsqhcezRTEpjxw",
-  authDomain: "farmsolutions-f9ab9.firebaseapp.com",
-  projectId: "farmsolutions-f9ab9",
-  storageBucket: "farmsolutions-f9ab9.appspot.com",
-  messagingSenderId: "268323594915",
-  appId: "1:268323594915:web:9e696114bda71f5cca5516"
-  };
-const date =new Date
-const consoleShow = `\n----------------------------\nScript running Time ${date}\n----------------------------`;
-const app = (0,firebase_app__WEBPACK_IMPORTED_MODULE_0__.initializeApp)(firebaseConfig);
-const db  = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.getFirestore)();
-const stor = (0,firebase_storage__WEBPACK_IMPORTED_MODULE_2__.getStorage)();
-// const storageRef = ref(storage, 'images/mountains.jpg');
-
-const productdetails = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.collection)(db, 'product');
-let inputid =``;
-function returnDocid(id)
-{
-  inputid=id;
-  console.log(`returnDocid ${inputid}`)
-};
-function addProductJs(){
-                const bar = document.querySelector(".bar");
-                
-
-                const percentageTag=document.querySelector(".percentage");
-                const total = 100;
-                let solved = 0;
-                solved=11;
-                
-                  const proportion = solved ;
-                const percentage =  Math.round(proportion * 100) / total;
-                const fileTypes = [
-                  "image/*",
-                  "image/apng",
-                  "image/bmp",
-                  "image/gif",
-                  "image/jpeg",
-                  "image/pjpeg",
-                  "image/png",
-                  "image/svg+xml",
-                  "image/tiff",
-                  "image/webp",
-                  "image/x-icon"
-                ];
-
-                function validFileType(file) {
-                  return fileTypes.includes(file.type);
-                }
-                function returnFileSize(number) {
-                  if (number < 1024) {
-                    return `${number} bytes`;
-                  } else if (number >= 1024 && number < 1048576) {
-                    return `${(number / 1024).toFixed(1)} KB`;
-                  } else if (number >= 1048576) {
-                    return `${(number / 1048576).toFixed(1)} MB`;
-                  }
-                }
-                percentageTag.textContent =`${percentage}%`;
-                // bar.style.width = `${percentage}%`;
-              const addProductForm = document.querySelector('.addProduct')
-              const input = document.querySelector('#fileInputControl');
-              const preview = document.querySelector('.preview');
-              function updateImageDisplay() {
-                while(preview.firstChild) {
-                  preview.removeChild(preview.firstChild);
-                }
-              
-                const curFiles = input.files;
-                if (curFiles.length === 0) {
-                  const para = document.createElement('p');
-                  para.textContent = 'No files currently selected for upload';
-                  preview.appendChild(para);
-                } else {
-                  const list = document.createElement('div');
-                  list.style="display: grid;grid-template-columns: 1fr 1fr 1fr;gap: 50px;padding: 10px;";
-                  list.id="imggrid";
-                  preview.appendChild(list);
-              
-                  for (const file of curFiles) {
-                    const listItem = document.createElement('div');
-                    
-                    const para = document.createElement('p');
-                    
-                    if (validFileType(file)) {
-                      para.textContent = `${file.name}, file size ${returnFileSize(file.size)}.`;
-                      const image = document.createElement('img');
-                      image.src = URL.createObjectURL(file);
-              
-                      listItem.appendChild(image);
-                      listItem.appendChild(para);
-                    } else {
-                      para.textContent = `File name ${file.name}: Not a valid file type. Update your selection.`;
-                      listItem.appendChild(para);
-                    }
-              
-                    list.appendChild(listItem);
-                  }
-                }
-              }
-              input.addEventListener('change', (eimg) => {
-                eimg.preventDefault();updateImageDisplay();
-              // console.log(document.getElementById('fileInputControl').files[0]) ;
-              // imgvar =document.getElementById('fileInputControl').files[0];
-              
-              // document.getElementById('productImg').appendChild(imgprev);
-              // const storref = ref(stor,`/images/${imgvar.name}`);
-
-            //  console.log(getDownloadURL(storref));
-
-            //  const uploadTask =  fileRef.put(e.target.files[0])
-            //   storref.on('state_changed', 
-            //     (snapshot) => {
-                  
-            //       var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-            //       if(progress=='100') alert('uploaded')
-            //     }, 
-            //     (error) => {
-            //     console.log(error)
-            //     }, 
-                // () => {
-                  
-                 // uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
-                   
-                    // document.querySelector('#proimg').src = downloadURL
-                    // firebase.auth().currentUser.updateProfile({
-                    //   photoURL: downloadURL
-                    // })
-                  // });
-                // }
-              // );
-              //
-            }
-              )
-              addProductForm.addEventListener('submit', (e) => {
-                                              e.preventDefault()
-                                                ;(0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.addDoc)(productdetails, {
-                                                name: addProductForm.name.value,
-                                                quantity: Number(addProductForm.quantity.value),
-                                                price: Number(addProductForm.price.value),
-                                                weight: Number(addProductForm.weight.value),
-                                                details: addProductForm.details.value,
-                                                createdAt: (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.serverTimestamp)(),
-                                              })
-                                              .then((docRef)=>{
-                                                inputid = docRef.id;
-                                                returnDocid(inputid);})
-                                              .then((docRef) => {if (curFiles.length !== 0) 
-                  {
-                                              // Points to the root reference
-                                              // const storageRef = storage().ref();
-                                              // Points to 'images'
-                                              // const imagesStorageRef = storageRef.child('');
-                                              // const storageRef = ref(storage, 'some-child');
-                                              const imagesStorageRef = (0,firebase_storage__WEBPACK_IMPORTED_MODULE_2__.ref)(stor, 'PRODUCT');
-                                              // space ref where image will be stored
-                                              
-                  for (const file of curFiles) {
-                    
-                    if (validFileType(file)) {
-                     // `${file.name}, file size ${returnFileSize(file.size)}.`;
-                      // image.src = URL.createObjectURL(file);
-                      // const spaceRef = imagesStorageRef.child(`${file.name}`);
-                       
-                      const spaceRef = (0,firebase_storage__WEBPACK_IMPORTED_MODULE_2__.ref)(imagesStorageRef,`${inputid}/${file.name}`)
-                      const uploadTask = (0,firebase_storage__WEBPACK_IMPORTED_MODULE_2__.uploadBytesResumable)(spaceRef, file);
-                                              uploadTask.on('state_changed',
-                                                  (snapshot) => {
-                                                      // Observe state change events such as progress, pause, and resume
-                                                      // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-                                                      let progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                                                      console.log(`Upload is ${progress} % done ${file.name}\n`);
-                                                      switch (snapshot.state) {
-                                                        case 'paused':
-                                                          console.log('Upload is paused');
-                                                          break;
-                                                        case 'running':
-                                                          console.log('Upload is running');
-                                                          break;
-                                                      }
-                                                      
-                                                  },
-                                                  (error) => {
-                                                      // Handle unsuccessful uploads
-                                                  },
-                                                  () => {
-                                                    (0,firebase_storage__WEBPACK_IMPORTED_MODULE_2__.getDownloadURL)(uploadTask.snapshot.ref).then((downloadURL) => {
-                                                      console.log('File available at', downloadURL);
-                                                          //onUploadSuccess(downloadURL);
-                                                      })
-                                                  }
-                                              );
-                                              
-                                                                   
-                    } else {
-                      //not valid img
-                    }
-                    
-                  }
-                }
-                                                alert("Product added");
-                                                
-                                                // console.log(inputid);
-                                                const preview = document.querySelector('.preview');
-                                                preview.removeChild(preview.firstChild);;
-                                                addProductForm.reset()
-                                              })
-                                              .catch((erdoc)=>{
-                                                console.log(`${erdoc.message} error in fileInputControladdEventListener`)
-                                              });
-                                              const curFiles = input.files;
-                
-                                              
-                                                           
-                                                                                
-                                            })
-              }
-function fnAddproduct(){
-  console.log(`exported script from addproduct ${consoleShow}`)
-
-}
-// export function fnimgfile(){
-//   document.querySelector('#fileInputControl').addEventListener('change', (eimg) => {
-//     eimg.preventDefault()
-//   console.log(document.getElementById('fileInputControl')) ;
-//   })
-// }
-
-
-/***/ }),
-
-/***/ "./src/addtonewsletter.js":
-/*!********************************!*\
-  !*** ./src/addtonewsletter.js ***!
-  \********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ addEmailtonewsletterJs),
-/* harmony export */   "fnAddEmail": () => (/* binding */ fnAddEmail)
-/* harmony export */ });
-/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! firebase/app */ "./node_modules/firebase/app/dist/esm/index.esm.js");
-/* harmony import */ var firebase_firestore__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! firebase/firestore */ "./node_modules/firebase/firestore/dist/esm/index.esm.js");
-
-
-// import {getDownloadURL,deleteObject,getStorage,ref } from 'firebase/storage'
-const firebaseConfig = {
-  apiKey: "AIzaSyDRlpN1aSw5Ed9bvtp7tDsqhcezRTEpjxw",
-  authDomain: "farmsolutions-f9ab9.firebaseapp.com",
-  projectId: "farmsolutions-f9ab9",
-  storageBucket: "farmsolutions-f9ab9.appspot.com",
-  messagingSenderId: "268323594915",
-  appId: "1:268323594915:web:9e696114bda71f5cca5516"
-  };
-const app = (0,firebase_app__WEBPACK_IMPORTED_MODULE_0__.initializeApp)(firebaseConfig);
-
-// init services---------
-const db  = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.getFirestore)();
-// collection ref------------------------
-const emaildetails = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.collection)(db, 'email');
-function addEmailtonewsletterJs(){
-
-console.log("exported script from addtonewsletter")
-const addEmailForm = document.querySelector('.addEmail')
-addEmailForm.addEventListener('submit', (e) => {
-  e.preventDefault()
-
-  ;(0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.addDoc)(emaildetails, {
-    email: addEmailForm.email.value,
-    createdAt: (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.serverTimestamp)(),
-  })
-  .then(() => {
-    addEmailForm.reset()
-  })
-  .catch(()=>{
-    console.log("error addEmailEventListener ")
-  })
-})
-}
-function fnAddEmail(){
-  console.log(`exported script from addtonewsletter 🗞️`)
-}
-
-/***/ }),
-
-/***/ "./src/insertWebAppIcon.js":
-/*!*********************************!*\
-  !*** ./src/insertWebAppIcon.js ***!
-  \*********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "linkfn": () => (/* binding */ linkfn)
-/* harmony export */ });
-function linkfn(){
-const  link = document.createElement('link');
-link.rel = "icon";
-link.href = "https://farmsolutions-f9ab9.web.app/resources/images/logosq.svg";
-document.getElementsByTagName('head')[0].appendChild(link);
-// bluebd =document.getElementsByTagName('body');
-// bluebd.style = "body-background:blue"
- }
-// function test()
-// {
-//     var element = document.createElement("div");
-//     element.appendChild(document.createTextNode('The man who mistook his wife for a hat'));
-//     document.getElementbyId('lc').appendChild(element);
-//     //docu1ment.body.appendChild(element);
-// }
-// myAnchor.setAttribute("href", "https://www.w3schools.com");
-
-/***/ }),
-
-/***/ "./src/signup.js":
-/*!***********************!*\
-  !*** ./src/signup.js ***!
-  \***********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ signuptoapp),
-/* harmony export */   "fnsignup": () => (/* binding */ fnsignup)
-/* harmony export */ });
-function signuptoapp() {
-  console.log(`from signup.js`)
- //signing users up
-const signupForm =document.querySelector('#regForm')
-if (signupForm === null) {
-  //if null
-} else {
-signupForm.addEventListener('submit',(e)=>{
-  const name = signupForm.name.value;
-  const email=signupForm.email.value;
-  const password=signupForm.password.value;
-  e.preventDefault();
-  // alert("Form is not valid. Please fix the errors and try again.");
-
-   addDoc(userdetails, 
-            {
-            name: name,
-            email: email,
-            password: password,
-            createdAt: serverTimestamp()
-              })
-                .then(() => {
-                  signupForm.reset()
-                }).catch(()=>{
-                  console.log("signupform error addEventListener ")
-                })
-const favDialog = document.getElementById('favDialog');
-favDialog.querySelector('#emailVarify').value=email;
-const emailVarify = favDialog.querySelector('#emailVarify');
-const confirmBtn = favDialog.querySelector('#confirmSentVarify')
-function dialogVarify() {
-if (confirm("continue to varification.")) {
-favDialog.showModal();
-} 
-createUserWithEmailAndPassword(auth,email,password)
-.then(()=>{
-function dialogVarify() {
-if (confirm("continue to varification.")) {
-favDialog.showModal();
-} 
-}
-alert('user created')
-dialogVarify();
-emailVarify.addEventListener('input', (e) => {
-confirmSentVarify.value = emailVarify.value;
-
-});
-// "Confirm" button of form triggers "close" on dialog because of [method="dialog"]
-favDialog.addEventListener('close', () => {
-
-if ( favDialog.returnValue == null || favDialog.returnValue == "") {
-alert( ` Varification sent ${favDialog.returnValue}.`);
-} else {
-alert( `Varification sent ${favDialog.returnValue}.`);
-}
-});
-// console.log('user created',cred.user)
-const actionCodeSettings = {
-// URL you want to redirect back to. The domain (www.example.com) for this
-// URL must be in the authorized domains list in the Firebase Console.
-url: 'https://www.example.com/finishSignUp?cartId=1234',
-// This must be true.
-handleCodeInApp: true,
-// iOS: {
-//   bundleId: 'com.example.ios'
-// },
-// android: {
-//   packageName: 'com.example.android',
-//   installApp: true,
-//   minimumVersion: '12'
-// },
-dynamicLinkDomain: 'example.page.link'
-};
-signupForm.reset();
-//location.replace("http://localhost/ServerDirectory/farmSolutions/dist/dashboard/dashboardAdmin/pages-login.html")
-})
-.catch((err)=>{
-const errorCode = err.code;
-const errorMessage = err.message;
-
-alert(errorCode)
-alert(errorMessage)
-})
-};
-
-// "Favorite animal" input sets the value of the submit button
-selectEl.addEventListener('change', (e) => {
-confirmBtn.value = selectEl.value;
-});
-// "Confirm" button of form triggers "close" on dialog because of [method="dialog"]
-favDialog.addEventListener('close', () => {
-outputBox.value = `ReturnValue: ${favDialog.returnValue}.`;
-});
-
-document.getElementById("submitButton").addEventListener("click", function(event){
-if (canRegister !== true) {
-event.preventDefault();
-alert("Form is not valid. Please fix the errors and try again.");
-}
-})})
-}
-
-   
-}
-function fnsignup(){
-    console.log(`exported script from signup.js`)
-  }
-
-/***/ }),
-
 /***/ "./node_modules/@firebase/app/dist/esm/index.esm2017.js":
 /*!**************************************************************!*\
   !*** ./node_modules/@firebase/app/dist/esm/index.esm2017.js ***!
@@ -29339,126 +28884,120 @@ const unwrap = (value) => reverseTransformCache.get(value);
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-/*!**********************!*\
-  !*** ./src/index.js ***!
-  \**********************/
+/*!****************************!*\
+  !*** ./src/showProduct.js ***!
+  \****************************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _insertWebAppIcon_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./insertWebAppIcon.js */ "./src/insertWebAppIcon.js");
-/* harmony import */ var _signup_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./signup.js */ "./src/signup.js");
-/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! firebase/app */ "./node_modules/firebase/app/dist/esm/index.esm.js");
-/* harmony import */ var _addproduct_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./addproduct.js */ "./src/addproduct.js");
-/* harmony import */ var _addtonewsletter_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./addtonewsletter.js */ "./src/addtonewsletter.js");
-console.log(`Main script is "Running👌"`);//TODO: import defaltfn ,{non-defaultfn as aliasfn} from filepath.
-// import { getRemoteConfig,fetchAndActivate, fetchConfig, activate, getValue}from 'firebase/remote-config'
-// import {
-//   getFirestore, collection, getDocs,
-//   addDoc, deleteDoc, doc,
-//   query, where,
-//   orderBy, serverTimestamp} from 'firebase/firestore';
-// import {
-//   getAuth,connectAuthEmulator,
-//   createUserWithEmailAndPassword}from 'firebase/auth'
-// import { } from 'firebase/database';
-// import {getDownloadURL,deleteObject,getStorage,ref } from 'firebase/storage'
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ showProductsJs)
+/* harmony export */ });
+/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! firebase/app */ "./node_modules/firebase/app/dist/esm/index.esm.js");
+/* harmony import */ var firebase_firestore__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! firebase/firestore */ "./node_modules/firebase/firestore/dist/esm/index.esm.js");
+/* harmony import */ var firebase_storage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! firebase/storage */ "./node_modules/firebase/storage/dist/esm/index.esm.js");
 
 
-(0,_insertWebAppIcon_js__WEBPACK_IMPORTED_MODULE_0__.linkfn)();
+  
+   
+  
+  function showProductsJs(){ 
 
-(0,_signup_js__WEBPACK_IMPORTED_MODULE_1__.fnsignup)();(0,_signup_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
+  const firebaseConfig = {
+  apiKey: "AIzaSyDRlpN1aSw5Ed9bvtp7tDsqhcezRTEpjxw",
+  authDomain: "farmsolutions-f9ab9.firebaseapp.com",
+  projectId: "farmsolutions-f9ab9",
+  storageBucket: "farmsolutions-f9ab9.appspot.com",
+  messagingSenderId: "268323594915",
+  appId: "1:268323594915:web:9e696114bda71f5cca5516"
+  };
+const app = (0,firebase_app__WEBPACK_IMPORTED_MODULE_0__.initializeApp)(firebaseConfig);
+const db  = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.getFirestore)();
+const stor = (0,firebase_storage__WEBPACK_IMPORTED_MODULE_2__.getStorage)();
+// const storageRef = ref(storage, 'images/mountains.jpg');
 
-const date =new Date().toString;
-const consoleShow = `script running ${date}`;
-// init firebase------------
-// init services---------
-// const db  = getFirestore();
-// const auth = getAuth();
-
-// // collection ref------------------------
-// // const colRef = collection(db, 'books')
-// const userdetails = collection(db, '@user');
-// const productdetails = collection(db, 'product');
-// const storageRef = ref(Storage)// makefolder
-// -------------------------------------------------
-// const imageRef = ref(storageRef,'images')
-// const sparkRef = ref(storageRef,'images/spark.jpg');
-// getDownloadURL(sparkRef)
-// .then((url) => {
-//   const xhr = new XMLHttpRequest();
-//   xhr.responseType() = 'blob'
-//   xhr.onload =(evn) => {
-//     const blob = xhr.response;
-//   };
-//   xhr.open('GET',url);
-//   xhr.send();
-//   // insert into am image element 
-//   const img1= document.getElementById('myimages1');
-//   img1.setAttribute('src',url); 
-// })
-// .catch((e1 => {
-//   // handle error
-// // });
-// deleteObject(sparkRef).then(()=>{
-//   console.log('file deleted');
-// }).catch(()=>{console.log('error w/h file upload')})
+const productdetails = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.collection)(db, 'product');
+let inputid =``;
+const displayProduct = document.getElementById('displayProduct');
 
 
-// get collection data----------------------------
-// getDocs(colRef)
-//   .then(snapshot => {
-//     // console.log(snapshot.docs)
-//     let books = []
-//     let books1={}
-//     console.log(snapshot)
-//     snapshot.docs.forEach(doc => {
-//       books.push({ ...doc.data(), id: doc.id })
-      // let books1= JSON.stringify(books)
-      // document.getElementById("show").innerHTML = books1;
-  //   })
-  //   console.log(books[1].id)
-  //   console.log(books1)
-  // })
-  // .catch(err => {
-  //   console.log(err.message)
-  // })
+displayProduct.addEventListener(`load`,()=>{
+                // create an array of product item objects with the relevant data
 
-// adding docs-----------------------------------
-// const addBookForm = document.querySelector('.add')
-// addBookForm.addEventListener('submit', (e) => {
-//   e.preventDefault()
+const products = [
+  {
+    imageSrc: 'https://firebasestorage.googleapis.com/v0/b/farmsolutions-f9ab9.appspot.com/o/PRODUCT%2FuPzFxYGmcj9tuf9QT4PO%2Fpineapple.jpg?alt=media&token=afbe89ff-4401-4424-9e67-d4395822222e',
+    name: 'Pineapple',
+    price: '24.00 RS'
+  },
+  {
+    imageSrc: 'https://firebasestorage.googleapis.com/v0/b/farmsolutions-f9ab9.appspot.com/o/PRODUCT%2FuPzFxYGmcj9tuf9QT4PO%2Fwatermelon.jpg?alt=media&token=1e6fc70c-047a-4fc8-b6b2-94c2d6ee00e6',
+    name: 'Watermelon',
+    price: '30.00 RS'
+  },
+  {
+    imageSrc: 'https://firebasestorage.googleapis.com/v0/b/farmsolutions-f9ab9.appspot.com/o/PRODUCT%2FuPzFxYGmcj9tuf9QT4PO%2Fbanana.jpg?alt=media&token=78a2f964-4d4e-4b7a-b4b4-3294db5d10c5',
+    name: 'Banana',
+    price: '12.00 RS'
+  }
+];
 
-//   addDoc(colRef, {
-//     title: addBookForm.title.value,
-//     author: addBookForm.author.value,
-//   })
-//   .then(() => {
-//     addBookForm.reset()
-//   })
-// })
-// deleting docs------------------------------------------
-// const deleteBookForm = document.querySelector('.delete')
-// deleteBookForm.addEventListener('submit', (e) => {
-//   e.preventDefault()
+// get the displayProduct element
+const displayProductDiv = document.getElementById('displayProduct');
 
-//   const docRef = doc(db, 'books', deleteBookForm.id.value)
+// loop through the products array and generate a product item for each one
+products.forEach(product => {
+  // create the HTML elements for the product item
+  const colDiv = document.createElement('div');
+  colDiv.classList.add('col-lg-4', 'col-md-6', 'col-sm-6');
 
-//   deleteDoc(docRef)
-//     .then(() => {
-//       deleteBookForm.reset()
-//     })
-// })
+  const productItemDiv = document.createElement('div');
+  productItemDiv.classList.add('product__item');
 
-// if (window.location.pathname == '/addProduct.html') {}
-(0,_addproduct_js__WEBPACK_IMPORTED_MODULE_3__.fnAddproduct)();(0,_addproduct_js__WEBPACK_IMPORTED_MODULE_3__["default"])();
-// 
+  const productImageDiv = document.createElement('div');
+  productImageDiv.classList.add('product__item__pic', 'set-bg');
+  productImageDiv.dataset.setbg = product.imageSrc;
 
-(0,_addtonewsletter_js__WEBPACK_IMPORTED_MODULE_4__.fnAddEmail)();(0,_addtonewsletter_js__WEBPACK_IMPORTED_MODULE_4__["default"])();
-// 
+  const productImageHoverUl = document.createElement('ul');
+  productImageHoverUl.classList.add('product__item__pic__hover');
 
-// 
+  const heartLi = document.createElement('li');
+  const heartLink = document.createElement('a');
+  heartLink.href = '#';
+  const heartIcon = document.createElement('i');
+  heartIcon.classList.add('fa', 'fa-heart');
+  heartLink.appendChild(heartIcon);
+  heartLi.appendChild(heartLink);
+  productImageHoverUl.appendChild(heartLi);
 
+  const retweetLi = document.createElement('li');
+  const retweetLink = document.createElement('a');
+  retweetLink.href = '#';
+  const retweetIcon = document.createElement('i');
+  retweetIcon.classList.add('fa', 'fa-retweet');
+  retweetLink.appendChild(retweetIcon);
+  retweetLi.appendChild(retweetLink);
+  productImageHoverUl.appendChild(retweetLi);
 
+  const cartLi = document.createElement('li');
+  const cartLink = document.createElement('a');
+  cartLink.href = '#';
+  const cartIcon = document.createElement('i');
+  cartIcon.classList.add('fa', 'fa-shopping-cart');
+  cartLink.appendChild(cartIcon);
+  cartLi.appendChild(cartLink);
+  productImageHoverUl.appendChild(cartLi);
+
+  const productTextDiv = document.createElement('div');
+  productTextDiv.classList;
+              }).catch(errshowproduct)
+              {
+                console.log(errshowproduct.message)
+              }
+               console.log(`From show product js`)
+              })
+ }
+ showProductsJs();
 })();
 
 /******/ })()
 ;
-//# sourceMappingURL=main.js.map
+//# sourceMappingURL=showProduct.js.map

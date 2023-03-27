@@ -3,13 +3,18 @@ const path = require('path')
 // import { modepro } from '.\webpack-production-config.jsproduction'
  const config = {
   // define entry point
-  entry: './src/index.js',
-   mode: 'development',
-  // mode: production,
+  entry: {
+    main :'./src/index.js',
+    addproduct:'./src/addroductmain.js',
+    showProduct :'./src/showProduct.js',
+  }
+  ,
+  //  mode: 'development',
+  mode: 'production',
   // define output point
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'main.js'
+    filename: `[name].js`
   },
   devtool: 'source-map',
   watch: true,
