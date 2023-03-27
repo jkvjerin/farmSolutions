@@ -5,7 +5,7 @@ const path = require('path')
   // define entry point
   entry: {
     main :'./src/index.js',
-    addproduct:'./src/addroductmain.js',
+    addproduct:'./src/main_addproduct.js',
     showProduct :'./src/showProduct.js',
   }
   ,
