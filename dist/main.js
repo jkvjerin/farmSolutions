@@ -23034,6 +23034,7 @@ const  link = document.createElement('link');
 link.rel = "icon";
 link.href = "https://farmsolutions-f9ab9.web.app/resources/images/logosq.svg";
 document.getElementsByTagName('head')[0].appendChild(link);
+
 // bluebd =document.getElementsByTagName('body');
 // bluebd.style = "body-background:blue"
  }

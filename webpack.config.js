@@ -12,6 +12,7 @@ const path = require('path')
     addproduct:'./src/main_addproduct.js',
     showProduct :'./src/showProduct.js',
     // ar: "./src/index.ts",
+    home:'./src/home.js',
   }
   // ,
   // module: {
