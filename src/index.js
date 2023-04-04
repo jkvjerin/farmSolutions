@@ -11,7 +11,7 @@ console.log(`Main script is "Running👌"`);//TODO: import defaltfn ,{non-defaul
 // import { } from 'firebase/database';
 // import {getDownloadURL,deleteObject,getStorage,ref } from 'firebase/storage'
 
-import {linkfn,} from './insertWebAppIcon.js';
+import {linkfn,} from './webPage/headTag.js';
 linkfn();
 // import signuptoapp ,{fnsignup} from './signupscript.js'
 // fnsignup();signuptoapp();
@@ -98,7 +98,7 @@ const consoleShow = `script running ${date}`;
 // })
 // 
 
-import addEmailtonewsletterJs, {fnAddEmail} from './addtonewsletter.js';
+import addEmailtonewsletterJs, {fnAddEmail} from './webPage/addtonewsletter.js';
 fnAddEmail();addEmailtonewsletterJs();
 // 
 

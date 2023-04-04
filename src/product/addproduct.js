@@ -233,3 +233,6 @@ export function fnAddproduct(){
 //   console.log(document.getElementById('fileInputControl')) ;
 //   })
 // }
+// if (window.location.pathname == '/addProduct.html') {}
+fnAddproduct();
+addProductJs();

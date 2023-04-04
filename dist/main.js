@@ -22964,10 +22964,10 @@ var FetchXmlHttpFactory = esm.FetchXmlHttpFactory=ed;var WebChannel = esm.WebCha
 
 /***/ }),
 
-/***/ "./src/addtonewsletter.js":
-/*!********************************!*\
-  !*** ./src/addtonewsletter.js ***!
-  \********************************/
+/***/ "./src/webPage/addtonewsletter.js":
+/*!****************************************!*\
+  !*** ./src/webPage/addtonewsletter.js ***!
+  \****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -23019,10 +23019,10 @@ function fnAddEmail(){
 
 /***/ }),
 
-/***/ "./src/insertWebAppIcon.js":
-/*!*********************************!*\
-  !*** ./src/insertWebAppIcon.js ***!
-  \*********************************/
+/***/ "./src/webPage/headTag.js":
+/*!********************************!*\
+  !*** ./src/webPage/headTag.js ***!
+  \********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -23030,14 +23030,101 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "linkfn": () => (/* binding */ linkfn)
 /* harmony export */ });
 function linkfn(){
-const  link = document.createElement('link');
-link.rel = "icon";
-link.href = "https://farmsolutions-f9ab9.web.app/resources/images/logosq.svg";
-document.getElementsByTagName('head')[0].appendChild(link);
+//   <meta content="FarmSolutions" name="description">
+    const  metadesc = document.createElement('meta');
+    metadesc.name="description";
+    metadesc.content = "FarmSolutions";
+    document.querySelector('head').appendChild(metadesc);
+
+//   <meta content="FarmSolutions" name="keywords">
+    const  metakeywd = document.createElement('meta');
+    metakeywd.name="keywords";
+    metakeywd.content = "FarmSolutions";
+    document.querySelector('head').appendChild(metakeywd);
+//   <!-- Favicons -->
+//   <link href="./assets/img/favicon.png" rel="icon">
+    const  link = document.createElement('link');
+    link.rel = "icon";
+    link.href = "https://farmsolutions-f9ab9.web.app/resources/images/logosq.svg";
+    document.querySelector('head').appendChild(link);
+//   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"></link>
+    const  link2 = document.createElement('link');
+    link2.rel = "apple-touch-icon";
+    link2.href = "https://farmsolutions-f9ab9.web.app/resources/images/logosq.svg";
+    document.querySelector('head').appendChild(link2);
+// recaptcha
+//  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+//gTranslate
+//<script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate" async></script>
+   // <script >
+//         function loadGoogleTranslate(){
+//            new google.translate.TranslateElement("google_element");
+//         }
+//     </script>
+// <style>
+//   .VIpgJd-ZVi9od-ORHb-OEVmcd{
+//     display:none;
+    
+//   }
+//   .goog-te-gadget {
+//     font-family: arial;
+//     font-size: 25px;
+//     color: #ff0000;
+//     white-space: nowrap;
+// }
+// .goog-te-combo{
+//   padding: 8px 40px;
+//   font-weight: 650;
+//   font-size: 14px;
+//   line-height: 20px;
+//   cursor: pointer;
+//   border: 2px solid white;
+//   border-radius: 10px;
+//   width: 280px;
+// }
+// .goog-te-combo:hover{
+//     color: black;
+//     background-color: rgb(255, 255, 255);}   
+//</style>
+ let google_element =document.getElementById("gele")
+
+
+  const scriptTag = document.createElement("script");
+  scriptTag.src ="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate";
+  scriptTag.async = true;
+  const scriptTag2 = document.createElement("script");
+  scriptTag2.innerHTML=`
+  function loadGoogleTranslate(){
+               new google.translate.TranslateElement(google_element);
+     }`
+  ;
+ 
+  document.querySelector('#gele').appendChild(scriptTag);
+  document.querySelector('#gele').appendChild(scriptTag2);
+
+ 
+  //style
+//   document.querySelector('.VIpgJd-ZVi9od-ORHb-OEVmcd').style.display= 'none';
+//   document.querySelector('.goog-te-gadget').style.fontFamily="arial" ;
+//   document.querySelector('.goog-te-gadget').style.fontSize = "25px" ;
+//   document.querySelector('.goog-te-gadget').style.color= "#ff0000" ;
+//   document.querySelector('.goog-te-gadget').style.whiteSpace= "nowrap" ;
+//   document.querySelector('.goog-te-gadget').style.padding= "8px 40px" ;
+//   document.querySelector('.goog-te-gadget').style.fontWeight= 650 ;
+//   document.querySelector('.goog-te-gadget').style.fontSize="14px" ;
+//   document.querySelector('.goog-te-gadget').style.lineHeight= "20px" ;
+//   document.querySelector('.goog-te-gadget').style.cursor= "pointer" ;
+//   document.querySelector('.goog-te-gadget').style.border= "2px solid white" ;
+//   document.querySelector('.goog-te-gadget').style.borderRadius= "10px" ;
+//   document.querySelector('.goog-te-gadget').style.width= "280px" ;
+//   document.querySelector('.goog-te-combo:hover').style.color="black" ;
+//   document.querySelector('.goog-te-combo:hover').style.backgroundColor= "rgb(255, 255, 255)" ;
+}
+linkfn();
 
 // bluebd =document.getElementsByTagName('body');
 // bluebd.style = "body-background:blue"
- }
+
 // function test()
 // {
 //     var element = document.createElement("div");
@@ -25228,9 +25315,9 @@ var __webpack_exports__ = {};
   !*** ./src/index.js ***!
   \**********************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _insertWebAppIcon_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./insertWebAppIcon.js */ "./src/insertWebAppIcon.js");
+/* harmony import */ var _webPage_headTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./webPage/headTag.js */ "./src/webPage/headTag.js");
 /* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! firebase/app */ "./node_modules/firebase/app/dist/esm/index.esm.js");
-/* harmony import */ var _addtonewsletter_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./addtonewsletter.js */ "./src/addtonewsletter.js");
+/* harmony import */ var _webPage_addtonewsletter_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./webPage/addtonewsletter.js */ "./src/webPage/addtonewsletter.js");
 console.log(`Main script is "Running👌"`);//TODO: import defaltfn ,{non-defaultfn as aliasfn} from filepath.
 // import { getRemoteConfig,fetchAndActivate, fetchConfig, activate, getValue}from 'firebase/remote-config'
 // import {
@@ -25245,7 +25332,7 @@ console.log(`Main script is "Running👌"`);//TODO: import defaltfn ,{non-defaul
 // import {getDownloadURL,deleteObject,getStorage,ref } from 'firebase/storage'
 
 
-(0,_insertWebAppIcon_js__WEBPACK_IMPORTED_MODULE_0__.linkfn)();
+(0,_webPage_headTag_js__WEBPACK_IMPORTED_MODULE_0__.linkfn)();
 // import signuptoapp ,{fnsignup} from './signupscript.js'
 // fnsignup();signuptoapp();
 
@@ -25332,7 +25419,7 @@ const consoleShow = `script running ${date}`;
 // 
 
 
-(0,_addtonewsletter_js__WEBPACK_IMPORTED_MODULE_2__.fnAddEmail)();(0,_addtonewsletter_js__WEBPACK_IMPORTED_MODULE_2__["default"])();
+(0,_webPage_addtonewsletter_js__WEBPACK_IMPORTED_MODULE_2__.fnAddEmail)();(0,_webPage_addtonewsletter_js__WEBPACK_IMPORTED_MODULE_2__["default"])();
 // 
 
 

@@ -9,10 +9,11 @@ const path = require('path')
   // define entry point
   entry: {
     main :'./src/index.js',
-    addproduct:'./src/main_addproduct.js',
-    showProduct :'./src/showProduct.js',
+    addproduct:'./src/product/addproduct.js',
+    showProduct :'./src/product/showProduct.js',
+    headtag:'./src/webPage/headTag.js',
     // ar: "./src/index.ts",
-    home:'./src/home.js',
+    
   }
   // ,
   // module: {
