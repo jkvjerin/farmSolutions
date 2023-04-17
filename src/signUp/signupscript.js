@@ -21,8 +21,8 @@ signupForm.addEventListener('submit',(e)=>{
               })
                 .then(() => {
                   signupForm.reset()
-                }).catch(()=>{
-                  console.log("signupform error addEventListener ")
+                }).catch((signuperr)=>{
+                  console.log(`signupform error addEventListener : ${signuperr.message}`)
                 })
 const favDialog = document.getElementById('favDialog');
 favDialog.querySelector('#emailVarify').value=email;
@@ -58,7 +58,7 @@ alert( `Varification sent ${favDialog.returnValue}.`);
 const actionCodeSettings = {
 // URL you want to redirect back to. The domain (www.example.com) for this
 // URL must be in the authorized domains list in the Firebase Console.
-url: 'https://www.example.com/finishSignUp?cartId=1234',
+url: `http://localhost/finishSignUp?cartId=${email}`,
 // This must be true.
 handleCodeInApp: true,
 // iOS: {

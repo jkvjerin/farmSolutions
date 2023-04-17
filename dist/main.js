@@ -23096,29 +23096,27 @@ function linkfn(){
   scriptTag2.innerHTML=`
   function loadGoogleTranslate(){
                new google.translate.TranslateElement(google_element);
-     }`
-  ;
- 
-  document.querySelector('#gele').appendChild(scriptTag);
-  document.querySelector('#gele').appendChild(scriptTag2);
+     }`;
+  google_element.appendChild(scriptTag);
+  google_element.appendChild(scriptTag2);
 
  
-  //style
-//   document.querySelector('.VIpgJd-ZVi9od-ORHb-OEVmcd').style.display= 'none';
-//   document.querySelector('.goog-te-gadget').style.fontFamily="arial" ;
-//   document.querySelector('.goog-te-gadget').style.fontSize = "25px" ;
-//   document.querySelector('.goog-te-gadget').style.color= "#ff0000" ;
-//   document.querySelector('.goog-te-gadget').style.whiteSpace= "nowrap" ;
-//   document.querySelector('.goog-te-gadget').style.padding= "8px 40px" ;
-//   document.querySelector('.goog-te-gadget').style.fontWeight= 650 ;
-//   document.querySelector('.goog-te-gadget').style.fontSize="14px" ;
-//   document.querySelector('.goog-te-gadget').style.lineHeight= "20px" ;
-//   document.querySelector('.goog-te-gadget').style.cursor= "pointer" ;
-//   document.querySelector('.goog-te-gadget').style.border= "2px solid white" ;
-//   document.querySelector('.goog-te-gadget').style.borderRadius= "10px" ;
-//   document.querySelector('.goog-te-gadget').style.width= "280px" ;
-//   document.querySelector('.goog-te-combo:hover').style.color="black" ;
-//   document.querySelector('.goog-te-combo:hover').style.backgroundColor= "rgb(255, 255, 255)" ;
+  style
+  document.querySelector('.VIpgJd-ZVi9od-ORHb-OEVmcd').style.display= 'none';
+  document.querySelector('.goog-te-gadget').style.fontFamily="arial" ;
+  document.querySelector('.goog-te-gadget').style.fontSize = "25px" ;
+  document.querySelector('.goog-te-gadget').style.color= "#ff0000" ;
+  document.querySelector('.goog-te-gadget').style.whiteSpace= "nowrap" ;
+  document.querySelector('.goog-te-gadget').style.padding= "8px 40px" ;
+  document.querySelector('.goog-te-gadget').style.fontWeight= 650 ;
+  document.querySelector('.goog-te-gadget').style.fontSize="14px" ;
+  document.querySelector('.goog-te-gadget').style.lineHeight= "20px" ;
+  document.querySelector('.goog-te-gadget').style.cursor= "pointer" ;
+  document.querySelector('.goog-te-gadget').style.border= "2px solid white" ;
+  document.querySelector('.goog-te-gadget').style.borderRadius= "10px" ;
+  document.querySelector('.goog-te-gadget').style.width= "280px" ;
+  document.querySelector('.goog-te-combo:hover').style.color="black" ;
+  document.querySelector('.goog-te-combo:hover').style.backgroundColor= "rgb(255, 255, 255)" ;
 }
 linkfn();
 
