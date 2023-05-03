@@ -20,6 +20,7 @@
   "homepage": "https://github.com/jkvjerin/farmSolutions#readme",
   "devDependencies": {
     "firebase": "^9.17.1",
+    "html5-qrcode": "^2.3.8",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1"
   }
